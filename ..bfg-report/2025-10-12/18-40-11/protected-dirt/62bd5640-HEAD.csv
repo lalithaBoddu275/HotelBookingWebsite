@@ -1,0 +1,4 @@
+a3194e60c1b76a55ba4c8aade317b96220e54be0,MODIFY,regular-file,Backend/.env,1037,12;28
+469dbc70e0e2230bd6779624f0d1d721ee5349b3,MODIFY,regular-file,Backend/configs/nodemailer.js,304,9
+3b8e3414722cb2c5033bd7b526cdae8414cf6a90,MODIFY,regular-file,frontend/.env,142,1
+0021a930753c8e4d27b5cb1d46c88d0361e5c9da,MODIFY,regular-file,frontend/src/main.jsx,708,10

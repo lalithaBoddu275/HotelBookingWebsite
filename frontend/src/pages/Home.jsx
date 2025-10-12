@@ -1,26 +1,25 @@
-import React from 'react';
-import Search from '../components/Search';   // go up one level
-import Navbar from '../components/Navbar';   // go up one level
-import FeaturedDestination from '../components/FeaturedDestination';
-import Offers from '../components/Offers';
-import Testimonial from '../components/Testimonial';
-import NewsLetter from '../components/NewsLetter';
+import React from 'react'
+import Hero from '../components/Hero'
+import FeaturedDestination from '../components/FeaturedDestination'
+import ExclusiveOffers from '../components/ExclusiveOffers'
+import Testimonial from '../components/Testimonial'
+import Newsletter from '../components/Newsletter'
+import Footer from '../components/Footer'
+import FAQS from '../components/Freq'
+import RecommendedHotels from '../components/RecommendedHotels'
 
 const Home = () => {
   return (
-    <>
-      
-     
-      <div className='mt-24 flex justify-center'>
-      <Search />
-      </div>
-      <FeaturedDestination/>
-      <Offers/>
-      <Testimonial/>
-      <NewsLetter/>
-      
-    </>
-  );
-};
+    <div>
+        <Hero/>
+        <RecommendedHotels/>
+        <FeaturedDestination/>
+        <ExclusiveOffers/>
+        <Testimonial />
+        <Newsletter />
+        <FAQS />
+    </div>
+  )
+}
 
-export default Home;
+export default Home

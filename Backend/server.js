@@ -7,6 +7,7 @@ import { clerkMiddleware } from '@clerk/express';
 
 
 import clerkWebhooks from './controllers/clerkWebhooks.js';
+import userRouter from './routes/userRoutes.js';
 await connectDB();
 
 
@@ -30,6 +31,7 @@ app.get('/', (req, res) => {
     res.send('QuickStay server is live!');
 });
 
+app.use('/api/user',userRouter)
 
 
 const PORT = process.env.PORT || 3000;

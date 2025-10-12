@@ -12,26 +12,27 @@ const clerkWebhooks = async (req, res) => {
     };
 
     // Verify the webhook
-    const verifiedPayload = await webhook.verify(JSON.stringify(req.body), headers);
-
-    // Extract data from payload
+    const verifiedPayload = await webhook.verify(req.body, headers); // if using raw body
     const { data, type } = verifiedPayload;
 
-    const userData = {
-      _id: data.id,
-      email: data.email_addresses?.[0]?.email_address || "",
-      username: `${data.first_name || ""} ${data.last_name || ""}`.trim(),
-      image: data.image_url,
-    };
-
-    // Handle different event types
     switch (type) {
       case "user.created":
+        const userData = {
+          _id: data.id,
+          email: data.email_addresses?.[0]?.email_address || "",
+          username: `${data.first_name || ""} ${data.last_name || ""}`.trim(),
+          image: data.image_url,
+        };
         await User.create(userData);
         break;
 
       case "user.updated":
-        await User.findByIdAndUpdate(data.id, userData);
+        const updatedData = {
+          email: data.email_addresses?.[0]?.email_address || "",
+          username: `${data.first_name || ""} ${data.last_name || ""}`.trim(),
+          image: data.image_url,
+        };
+        await User.findByIdAndUpdate(data.id, updatedData);
         break;
 
       case "user.deleted":
